@@ -1,3 +1,4 @@
+#include <X11/XF86keysym.h>
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
@@ -36,7 +37,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -48,12 +49,27 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *terminal[]  = { "st", NULL };
+static const char *browser[]  = { "tabbed", "surf", "-pe", NULL };
+static const char *volumeUp[] = { "amixer", "-q", "sset", "Master", "5%+", NULL };
+static const char *volumeDown[] = { "amixer", "-q", "sset", "Master", "5%-", NULL };
+static const char *volumeMute[] = { "amixer", "-q", "sset", "Master", "toggle", NULL };
+static const char *brightnessUp[] = { "xbacklight", "-ctrl", "gmux_backlight", "-inc", "10", NULL };
+static const char *brightnessDown[] = { "xbacklight", "-ctrl", "gmux_backlight", "-dec", "10", NULL };
 
 static Key keys[] = {
+	/* function row */
+	/* modifier  key                           function        argument */
+	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          {.v = volumeUp } },
+	{ 0,         XF86XK_AudioLowerVolume,      spawn,          {.v = volumeDown } },
+	{ 0,         XF86XK_AudioMute,             spawn,          {.v = volumeMute } },
+	{ 0,         XF86XK_LaunchA,               spawn,          {.v = browser } },
+	{ 0,         XF86XK_LaunchB,               spawn,          {.v = terminal } },
+	{ 0,         XF86XK_MonBrightnessUp,       spawn,          {.v = brightnessUp } },
+	{ 0,         XF86XK_MonBrightnessDown,     spawn,          {.v = brightnessDown } },
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = terminal } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -92,7 +108,7 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkStatusText,        0,              Button2,        spawn,          {.v = terminal } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
