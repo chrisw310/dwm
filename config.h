@@ -56,6 +56,9 @@ static const char *volumeDown[] = { "amixer", "-q", "sset", "Master", "5%-", NUL
 static const char *volumeMute[] = { "amixer", "-q", "sset", "Master", "toggle", NULL };
 static const char *brightnessUp[] = { "xbacklight", "-ctrl", "gmux_backlight", "-inc", "10", NULL };
 static const char *brightnessDown[] = { "xbacklight", "-ctrl", "gmux_backlight", "-dec", "10", NULL };
+static const char *keyUp[] = { "kbdlight", "up", "10", NULL };
+static const char *keyDown[] = { "kbdlight", "down", "10", NULL };
+
 
 static Key keys[] = {
 	/* function row */
@@ -67,6 +70,8 @@ static Key keys[] = {
 	{ 0,         XF86XK_LaunchB,               spawn,          {.v = terminal } },
 	{ 0,         XF86XK_MonBrightnessUp,       spawn,          {.v = brightnessUp } },
 	{ 0,         XF86XK_MonBrightnessDown,     spawn,          {.v = brightnessDown } },
+	{ 0,         XF86XK_KbdBrightnessUp,       spawn,          {.v = keyUp } },
+	{ 0,         XF86XK_KbdBrightnessDown,     spawn,          {.v = keyDown } },
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = terminal } },
