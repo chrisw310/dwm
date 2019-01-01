@@ -2,7 +2,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]            = "-*-terminus-*-r-*-*-32-*-*-*-*-*-*-*";
+static const char font[]            = "-*-inconsolata-medium-*-*-*-34-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#ebdbb2";
 static const char normbgcolor[]     = "#3c3836";
 static const char normfgcolor[]     = "#ebdbb2";
@@ -49,7 +49,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *terminal[]  = { "st", NULL };
+static const char *terminal[]  = { "tabbed", "st", "-pe", NULL };
 static const char *browser[]  = { "tabbed", "surf", "-pe", NULL };
 static const char *volumeUp[] = { "amixer", "-q", "sset", "Master", "5%+", NULL };
 static const char *volumeDown[] = { "amixer", "-q", "sset", "Master", "5%-", NULL };
