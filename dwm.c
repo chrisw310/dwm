@@ -782,7 +782,7 @@ drawtext(const char *text, unsigned long col[ColLast], Bool invert) {
 		return;
 	olen = strlen(text);
 	h = dc.font.ascent + dc.font.descent;
-	y = dc.y + (dc.h / 2) - (h / 2);
+	y = dc.y + (dc.h / 2) - (h / 2) - 2; /* realigned font */
 	x = dc.x + (h / 2);
 	/* shorten text if necessary (this could wreak havoc with pango markup but fortunately
 	   dc.w is adjusted to the width of the status text and not the other way around) */
@@ -1509,7 +1509,7 @@ setup(void) {
 	initfont(font);
 	sw = DisplayWidth(dpy, screen);
 	sh = DisplayHeight(dpy, screen);
-	bh = dc.h = dc.font.height + 2;
+	bh = dc.h = dc.font.height + 10;
 	updategeom();
 	/* init atoms */
 	wmatom[WMProtocols] = XInternAtom(dpy, "WM_PROTOCOLS", False);
