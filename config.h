@@ -2,7 +2,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]            = "-*-inconsolata-medium-*-*-*-34-*-*-*-*-*-*-*";
+static const char font[]            = "Inconsolata 12";
 static const char normbordercolor[] = "#ebdbb2";
 static const char normbgcolor[]     = "#3c3836";
 static const char normfgcolor[]     = "#ebdbb2";
@@ -13,6 +13,7 @@ static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
+static const Bool statusmarkup = True; /* Pango support */
 
 static const unsigned int gappx     = 20;        /* gap pixel between windows */
 
