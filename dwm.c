@@ -1003,22 +1003,21 @@ grabkeys(void) {
 
 void
 initfont(const char *fontstr) {	
- PangoFontMap *fontmap;
- PangoContext *context;
- PangoFontDescription *desc;
- PangoFontMetrics *metrics;
- fontmap = pango_xft_get_font_map(dpy, screen);
- context = pango_font_map_create_context(fontmap);
- desc = pango_font_description_from_string(fontstr);
- dc.font.layout = pango_layout_new(context);
- pango_layout_set_font_description(dc.font.layout, desc);
- metrics = pango_context_get_metrics(context, desc, NULL);
- dc.font.ascent = pango_font_metrics_get_ascent(metrics) / PANGO_SCALE;
- dc.font.descent = pango_font_metrics_get_descent(metrics) / PANGO_SCALE;
- dc.font.height = dc.font.ascent + dc.font.descent;
-pango_font_metrics_unref(metrics);
-g_object_unref(context);
-
+        PangoFontMap *fontmap;
+        PangoContext *context;
+        PangoFontDescription *desc;
+        PangoFontMetrics *metrics;
+        fontmap = pango_xft_get_font_map(dpy, screen);
+        context = pango_font_map_create_context(fontmap);
+        desc = pango_font_description_from_string(fontstr);
+        dc.font.layout = pango_layout_new(context);
+        pango_layout_set_font_description(dc.font.layout, desc);
+        metrics = pango_context_get_metrics(context, desc, NULL);
+        dc.font.ascent = pango_font_metrics_get_ascent(metrics) / PANGO_SCALE;
+        dc.font.descent = pango_font_metrics_get_descent(metrics) / PANGO_SCALE;
+        dc.font.height = dc.font.ascent + dc.font.descent;
+        pango_font_metrics_unref(metrics);
+        g_object_unref(context);
 }
 
 Bool
