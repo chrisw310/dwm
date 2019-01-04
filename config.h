@@ -3,19 +3,19 @@
 
 /* appearance */
 static const char font[]            = "Inconsolata, Symbola 12";
-static const char normbordercolor[] = "#ebdbb2";
+static const char normbordercolor[] = "#ffffff";
 static const char normbgcolor[]     = "#3c3836";
 static const char normfgcolor[]     = "#ebdbb2";
-static const char selbordercolor[]  = "#ebdbb2";
+static const char selbordercolor[]  = "#ffffff";
 static const char selbgcolor[]      = "#282828";
 static const char selfgcolor[]      = "#ebdbb2";
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int borderpx  = 15;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 static const Bool statusmarkup = True; /* Pango support */
 
-static const unsigned int gappx     = 20;        /* gap pixel between windows */
+static const unsigned int gappx     = 60;        /* gap pixel between windows */
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
