@@ -496,7 +496,7 @@ cleanup(void) {
 		XftColorFree(dpy, DefaultVisual(dpy, screen), DefaultColormap(dpy, screen), dc.xft.sel + i);
 	}
 	XftDrawDestroy(dc.xft.drawable);
-	g_object_unref(dc.font.layout);
+	/*g_object_unref(dc.font.layout);*/
 	XFreeGC(dpy, dc.gc);
 	XFreeCursor(dpy, cursor[CurNormal]);
 	XFreeCursor(dpy, cursor[CurResize]);
@@ -1017,7 +1017,7 @@ initfont(const char *fontstr) {
         dc.font.descent = pango_font_metrics_get_descent(metrics) / PANGO_SCALE;
         dc.font.height = dc.font.ascent + dc.font.descent;
         pango_font_metrics_unref(metrics);
-        g_object_unref(context);
+        //g_object_unref(context);
 }
 
 Bool
