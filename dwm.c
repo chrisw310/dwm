@@ -213,6 +213,7 @@ static void quit(const Arg *arg);
 static void resize(Client *c, int x, int y, int w, int h, Bool interact);
 static void resizemouse(const Arg *arg);
 static void restack(Monitor *m);
+static void restack(Monitor *m);
 static void run(void);
 static void scan(void);
 static void sendmon(Client *c, Monitor *m);
@@ -1183,7 +1184,8 @@ monocle(Monitor *m) {
 		if(ISVISIBLE(c))
 			n++;
 	if(n > 0) /* override layout symbol */
-		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n);
+		/* snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n); */
+		snprintf(m->ltsymbol, sizeof m->ltsymbol, "");
 	for(c = nexttiled(m->clients); c; c = nexttiled(c->next))
 		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, False);
 }
