@@ -1315,12 +1315,13 @@ resize(Client *c, int x, int y, int w, int h, Bool interact) {
 			gapincr = gapoffset = 0;
 		} else {
 			if (selmon->lt[selmon->sellt]->arrange == monocle || n == 1) {
-			gapoffset = -borderpx;
+			gapoffset = 0;
 			gapincr = -2 * borderpx;
 			wc.border_width = 0;
 		} else {
 			gapoffset = gappx;
 			gapincr = 2 * gappx;
+			wc.border_width = c->bw;
 		}
 		}
 		
@@ -1328,7 +1329,6 @@ resize(Client *c, int x, int y, int w, int h, Bool interact) {
 		c->y = wc.y = y + gapoffset;
 		c->w = wc.width = w - gapincr;
 		c->h = wc.height = h - gapincr;
-		wc.border_width = c->bw;
 
 		XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
 		configure(c);
