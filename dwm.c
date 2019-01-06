@@ -783,7 +783,7 @@ drawtext(const char *text, unsigned long col[ColLast], Bool invert) {
 		return;
 	olen = strlen(text);
 	h = dc.font.ascent + dc.font.descent;
-	y = dc.y + (dc.h / 2) - (h / 2) - 2; /* realigned font */
+	y = dc.y + (dc.h / 2) - (h / 2) - 1; /* realigned font */
 	x = dc.x + (h / 2);
 	/* shorten text if necessary (this could wreak havoc with pango markup but fortunately
 	   dc.w is adjusted to the width of the status text and not the other way around) */
