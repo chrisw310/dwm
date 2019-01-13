@@ -2,7 +2,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]            = "Inconsolata, Symbola 12";
+static const char font[]            = "Inconsolata\ Nerd\ Font\ Mono 12";
 static const char normbordercolor[] = "#ffffff";
 static const char normbgcolor[]     = "#3c3836";
 static const char normfgcolor[]     = "#ebdbb2";
